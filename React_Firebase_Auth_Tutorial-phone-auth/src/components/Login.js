@@ -12,6 +12,8 @@ const Login = () => {
   const { logIn, googleSignIn } = useUserAuth();
   const navigate = useNavigate();
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -37,18 +39,20 @@ const Login = () => {
     <>
       <div className="p-4 box">
         <h2 className="mb-3">Firebase Auth Login</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
+        {error && <Alert variant="danger">{"error.message"}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="email"
+            <input
+              style={{ outline: "none", border: "1px solid #ced4da", backgroundColor: "#f5f5f5", width: "100%", height: "40px", borderRadius: "5px", padding: "0 10px" }}
+              type="text"
               placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
+            <input
+              style={{ outline: "none", border: "1px solid #ced4da", backgroundColor: "#f5f5f5", width: "100%", height: "40px", borderRadius: "5px", padding: "0 10px" }}
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
